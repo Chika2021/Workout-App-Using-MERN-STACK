@@ -46,10 +46,11 @@ exports.updateWorkout = async (req, res) => {
 
 
 exports.deleteWorkout = async (req, res) => {
-    const {id} = req.query
+    const { id } = req.query
     const workout = await Workout.findByIdAndDelete(id)
-    if(!workout){
-        return res.status(400).json({message:'Workout Not Found'})
+    if (!workout) {
+        return res.status(400).json({ message: 'Workout Not Found' })
     }
     res.status(200).json(workout)
+
 }
