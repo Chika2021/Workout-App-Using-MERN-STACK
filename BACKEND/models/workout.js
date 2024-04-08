@@ -3,17 +3,17 @@ const mongoose = require('mongoose')
 const workoutSchema = mongoose.Schema({
     title: {
         type:String,
-        required:true
+        // required:true
 
     },
 
     reps: {
         type:Number,
-        required:true
+        // required:true
     },
     load:{
         type:Number,
-        required:true
+        // required:true
     },
 
 }, {timestamps:true})
