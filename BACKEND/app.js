@@ -11,6 +11,8 @@ var workout = require('./routes/workoutRoute')
 var mongoose = require('mongoose')
 
 var app = express();
+
+//Enabling Cross-Origin Resource Sharing
 app.use(cors());
 
 mongoose.connect('mongodb://localhost:27017/gunta')
