@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+const cors = require('cors');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -10,6 +11,7 @@ var workout = require('./routes/workoutRoute')
 var mongoose = require('mongoose')
 
 var app = express();
+app.use(cors());
 
 mongoose.connect('mongodb://localhost:27017/gunta')
     .then(console.log('DATABASE CONNECTION SUCCESSFULL'))
@@ -21,7 +23,7 @@ app.set('view engine', 'jade');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
